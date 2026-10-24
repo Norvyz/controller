@@ -1,38 +1,36 @@
 package me.controller.animation;
 
-import me.controller.utils.ColorUtil;
+import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.chat.ComponentSerializer;
 import org.bukkit.entity.Player;
+import me.controller.utils.ColorUtil;
+import java.awt.Color; // CORREGIDO: Debe ser java.awt.Color para coincidir con ColorUtil
 
-import java.awt.Color;
-
-/**
- * Pone una imagen del resource pack en pantalla usando el TITULO (la imagen es un caracter de
- * una fuente propia) y el texto animado debajo (subtitulo + barra de accion).
- */
 public final class ImageTitle {
-
     private static final String FONT = "sociolandia:image";
-    private static final String EMPTY = "{\"text\":\"\"}";
+    private static final String EMPTY = ComponentSerializer.toString(new TextComponent(""));
 
-    // Cuadros de entrada (grande -> tamano final) y respiro. Definidos en tools/generate_font.py
-    private static final char[] LOGO = {'', '', '', '', '', '', ''};
-    private static final char[] SKULL = {'', '', '', '', '', '', ''};
-    private static final char SKULL_LOW = '';
-    private static final char SKULL_LOWER = '';
-    private static final char SKULL_HIGH = '';
-    private static final char SHIFT_RIGHT = '';
-    private static final char SHIFT_LEFT = '';
-    private static final int FINAL = 5;
-    private static final int BREATH = 6;
+    private static final char[] LOGO = {'\uE000', '\uE001', '\uE002', '\uE003', '\uE004', '\uE005', '\uE006'};
+    private static final char[] SKULL = {'\uE010', '\uE011', '\uE012', '\uE013', '\uE014', '\uE015', '\uE016'};
+    
+    private static final int FINAL = 6;
+    private static final int BREATH = 5;
+    private static final char SHIFT_RIGHT = '\uE017';
+    private static final char SHIFT_LEFT = '\uE018';
+    private static final char SKULL_LOW = '\uE019';
+    private static final char SKULL_HIGH = '\uE01A';
+    private static final char SKULL_LOWER = '\uE01B';
 
-    private ImageTitle() {}
+    private static void send(AnimationManager m, Player p, String chars, String subLegacy,
+            int fadeIn, int stay, int fadeOut) {
+        TitleSender.send(m.plugin(), p, glyph(chars), text(subLegacy), fadeIn, stay, fadeOut);
+    }
 
     private static String glyph(String chars) {
         TextComponent c = new TextComponent(chars);
         c.setFont(FONT);
-        c.setColor(net.md_5.bungee.api.ChatColor.WHITE); // blanco = la imagen sale con sus colores originales
+        c.setColor(ChatColor.WHITE);
         return ComponentSerializer.toString(c);
     }
 
@@ -41,12 +39,6 @@ public final class ImageTitle {
         return ComponentSerializer.toString(TextComponent.fromLegacyText(legacy));
     }
 
-    private static void send(AnimationManager m, Player p, String chars, String subLegacy,
-                             int fadeIn, int stay, int fadeOut) {
-        TitleSender.send(m.plugin(), p, glyph(chars), text(subLegacy), fadeIn, stay, fadeOut);
-    }
-
-    /** Bienvenida: el logo entra de golpe, respira, y debajo se escribe el texto con destello. */
     public static void welcome(AnimationManager m, Player p, String line1, String line2, Color a, Color b) {
         final String plain = ColorUtil.strip(line1);
         final String second = line2 == null ? "" : line2;
@@ -58,7 +50,6 @@ public final class ImageTitle {
 
         m.repeat(0, 2, f -> {
             if (!p.isOnline()) return false;
-
             if (f < slam) {
                 send(m, p, String.valueOf(LOGO[f]), "", f == 0 ? 3 : 0, 8, 0);
                 if (f == 0) Fx.sound(p, "entity.player.levelup", 0.6f, 1.2f);
@@ -92,7 +83,6 @@ public final class ImageTitle {
         });
     }
 
-    /** Muerte: la calavera cae de golpe y se rie (tiembla y rebota) con "JAJAJA" y una burla debajo. */
     public static void death(AnimationManager m, Player p, String headline, String taunt, Color a, Color b) {
         final int slam = 6;
         final int shake = 26;
@@ -101,7 +91,6 @@ public final class ImageTitle {
 
         m.repeat(0, 2, f -> {
             if (!p.isOnline()) return false;
-
             if (f < slam) {
                 send(m, p, String.valueOf(SKULL[f]), "", f == 0 ? 2 : 0, 8, 0);
                 return true;
