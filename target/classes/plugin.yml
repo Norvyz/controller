@@ -1,0 +1,24 @@
+name: Controller
+version: 1.3.0
+main: me.controller.ControllerPlugin
+api-version: '1.21'
+author: Controller
+description: Controlador de PvP por tiempo y mensajes al entrar
+
+commands:
+  pvp:
+    description: Activar PvP por tiempo
+    usage: /pvp on <tiempo> | /pvp off | /pvp preview
+    permission: controller.pvp
+  mensaje:
+    description: Configurar mensaje al entrar
+    usage: /mensaje <texto> | /mensaje clear | /mensaje preview [muerte] | /mensaje reload
+    permission: controller.mensaje
+
+permissions:
+  controller.pvp:
+    description: Permite usar /pvp
+    default: op
+  controller.mensaje:
+    description: Permite usar /mensaje
+    default: op

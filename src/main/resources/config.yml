@@ -1,0 +1,86 @@
+# Configuración Controller
+
+pvp:
+  all-worlds: true
+  worlds:
+    - world
+  pre-warn-seconds: [300, 120, 60, 30]
+  use-bossbar: false
+  actionbar: true            # barra de acción animada mientras el PvP está activo
+  sounds:
+    start: ENTITY_ENDER_DRAGON_GROWL
+    warn: BLOCK_NOTE_BLOCK_PLING
+    end: ENTITY_WITHER_DEATH
+  title-fade-in: 10
+  title-stay: 70
+  title-fade-out: 20
+  animation:
+    enabled: true            # false = vuelve a los títulos simples de antes
+    swords: true             # espadas 3D que chocan frente al jugador
+    sword-left: DIAMOND_SWORD
+    sword-right: NETHERITE_SWORD
+    sword-scale: 1.7
+    hold-ticks: 45           # cuánto se quedan cruzadas (20 ticks = 1 segundo)
+    symbol-left: ">>"        # marcas de texto a los lados del título y de la barra
+    symbol-right: "<<"
+    gradient: ["#FF2A2A", "#FFB300"]
+    warn-gradient: ["#FFE600", "#FF7A00"]
+    end-gradient: ["#2BFF6B", "#00B7FF"]
+
+join-message:
+  enabled: true
+  # Usa \n para separar título y subtítulo. %player% = nombre del jugador.
+  text: "&6&lBIENVENIDO\n&fDisfruta tu estancia"
+  sounds:
+    enter: UI_TOAST_CHALLENGE_COMPLETE
+  animation:
+    enabled: true            # false = título simple de antes
+    start-delay-ticks: 20    # espera a que el jugador termine de cargar el mundo
+    show-logo: true          # logo del servidor en pantalla (necesita el resource pack)
+    gradient: ["#FFD700", "#FF7A00"]
+
+# Resource pack con el logo y la calavera (la imagen se dibuja en el título de Minecraft).
+# El plugin genera plugins/Controller/SocioLandia-pack.zip al iniciar. Para que los jugadores
+# lo reciban hay que ponerlo en internet. Elige UNA opción:
+#   A) Sube SocioLandia-pack.zip a un hosting (GitHub Releases, tu hosting, etc.) y pon el enlace directo en "url".
+#   B) host.enabled: true  -> el propio servidor lo sirve por HTTP (abre ese puerto TCP en tu hosting).
+# Sin esto las animaciones funcionan igual pero solo con texto.
+resource-pack:
+  enabled: true
+  url: ""
+  host:
+    enabled: false
+    port: 8123
+    address: ""              # IP o dominio publico del servidor, ej. play.sociolandia.com
+  force: false               # true = expulsa a quien rechace el pack
+  prompt: "Texturas de SocioLandia (logo y animaciones)"
+  wait-ticks: 200            # cuanto espera a que cargue el pack antes de mostrar solo texto
+
+# Burla al morir: mensaje en el chat para todos y, cuando el jugador reaparece,
+# la calavera paisa en pantalla (resource pack) riéndose + texto animado + carcajadas.
+death:
+  enabled: true
+  broadcast: true                 # mensaje burlón en el chat para todos
+  replace-vanilla-message: false  # true = oculta el mensaje de muerte normal de Minecraft
+  show-image: true
+  start-delay-ticks: 15           # espera tras reaparecer
+  title: "¡JAJAJAJA!"
+  gradient: ["#FF2A2A", "#8A0000"]
+  laugh-sound: "entity.witch.celebrate"   # cualquier sonido; con resource pack puedes poner uno propio (ej. sociolandia:risa)
+  laugh-volume: 1.0
+  laugh-count: 5
+  messages:
+    - "&c%player% &7se murió, ¡jajaja! Qué oso, parce."
+    - "&7¡Uy no! &c%player% &7quedó más tieso que arepa de ayer."
+    - "&7¡Qué pecado con usted, &c%player%&7! Jajajaja."
+    - "&c%player% &7quedó espichado. ¡De malas, mijo!"
+    - "&7¡Ni con aguardiente lo reviven, &c%player%&7! Jajaja."
+    - "&7Eso le pasa a &c%player% &7por andar de lagarto."
+    - "&7¡Hágale pues, &c%player%&7, que la calavera lo estaba esperando!"
+    - "&7¡Ay, &c%player%&7, qué oso con usted! Jajajaja."
+  subtitles:
+    - "&7¡Qué oso, parce!"
+    - "&7¡Quedó espichado!"
+    - "&7¡De malas, mijo!"
+    - "&7¡Qué pecado con usted!"
+    - "&7¡Hágale pues, a la próxima!"

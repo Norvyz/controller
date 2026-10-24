@@ -1,0 +1,164 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "sociolandia:font/logo.png",
+      "ascent": 64,
+      "height": 84,
+      "chars": [
+        "\ue000"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sociolandia:font/logo.png",
+      "ascent": 58,
+      "height": 72,
+      "chars": [
+        "\ue001"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sociolandia:font/logo.png",
+      "ascent": 53,
+      "height": 62,
+      "chars": [
+        "\ue002"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sociolandia:font/logo.png",
+      "ascent": 49,
+      "height": 54,
+      "chars": [
+        "\ue003"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sociolandia:font/logo.png",
+      "ascent": 46,
+      "height": 48,
+      "chars": [
+        "\ue004"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sociolandia:font/logo.png",
+      "ascent": 44,
+      "height": 44,
+      "chars": [
+        "\ue005"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sociolandia:font/logo.png",
+      "ascent": 45,
+      "height": 46,
+      "chars": [
+        "\ue006"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sociolandia:font/calavera.png",
+      "ascent": 64,
+      "height": 84,
+      "chars": [
+        "\ue010"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sociolandia:font/calavera.png",
+      "ascent": 58,
+      "height": 72,
+      "chars": [
+        "\ue011"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sociolandia:font/calavera.png",
+      "ascent": 53,
+      "height": 62,
+      "chars": [
+        "\ue012"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sociolandia:font/calavera.png",
+      "ascent": 49,
+      "height": 54,
+      "chars": [
+        "\ue013"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sociolandia:font/calavera.png",
+      "ascent": 46,
+      "height": 48,
+      "chars": [
+        "\ue014"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sociolandia:font/calavera.png",
+      "ascent": 44,
+      "height": 44,
+      "chars": [
+        "\ue015"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sociolandia:font/calavera.png",
+      "ascent": 45,
+      "height": 46,
+      "chars": [
+        "\ue016"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sociolandia:font/calavera.png",
+      "ascent": 40,
+      "height": 44,
+      "chars": [
+        "\ue020"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sociolandia:font/calavera.png",
+      "ascent": 36,
+      "height": 44,
+      "chars": [
+        "\ue021"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sociolandia:font/calavera.png",
+      "ascent": 42,
+      "height": 44,
+      "chars": [
+        "\ue022"
+      ]
+    },
+    {
+      "type": "space",
+      "advances": {
+        "\ue100": 6,
+        "\ue101": -6
+      }
+    }
+  ]
+}
